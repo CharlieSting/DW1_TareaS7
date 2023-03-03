@@ -3,15 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Login_s7.MainPage"
              BackgroundColor="#112B47"
+             xmlns:local="clr-namespace:Login_s7.ViewModel"
              >
+
+    <ContentPage.BindingContext>
+        <local:ViewModelMainPage></local:ViewModelMainPage>
+    </ContentPage.BindingContext>
 
     <ContentPage.Content>
     <StackLayout Padding="40" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
 
             <Image Source="noson.png" WidthRequest="180" HeightRequest="180"></Image>
+            
+        
+        <Label Text="Inicio de Sesión" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
 
-            <Entry Placeholder="Correo Electronico" TextColor="White" PlaceholderColor="Gray" Keyboard="Email" Text="{Binding}"></Entry>
-        <Entry Placeholder="Contraseña" TextColor="White" PlaceholderColor="Gray" Text="{Binding}" IsPassword="True" Keyboard="Text"></Entry>
+            <Label Text="Correo" TextColor="White"></Label>
+            <Entry Placeholder="ejemplo@unitec.edu" TextColor="White" PlaceholderColor="Gray" Keyboard="Email" Text="{Binding Correo_cliente}"></Entry>
+            <Label Text="Contraseña" TextColor="White"></Label>
+            <Entry Placeholder="Contraseña" TextColor="White" PlaceholderColor="Gray" Text="{Binding Pass}" IsPassword="True" Keyboard="Text"></Entry>
         <Button
             VerticalOptions="Center"
             Text="Ingresar"
@@ -19,7 +29,7 @@
             BackgroundColor="Transparent"
             BorderWidth="1.5"
             CornerRadius="50"
-            Command="{Binding}"
+            Command="{Binding inicioSesion}"
             ></Button>
     </StackLayout>
    </ContentPage.Content>
