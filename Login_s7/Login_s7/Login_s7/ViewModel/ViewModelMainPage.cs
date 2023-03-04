@@ -39,7 +39,7 @@ namespace Login_s7.ViewModel
                     else
                     {
 
-                        Resultado = "Inicio de Sesión Erroneo";
+                        Resultado = "Usuario o contraseña invalidos";
                     }
 
                 }

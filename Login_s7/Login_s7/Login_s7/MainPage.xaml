@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Login_s7.MainPage"
-             BackgroundColor="#112B47"
+             BackgroundColor="#f7c270"
              xmlns:local="clr-namespace:Login_s7.ViewModel"
              >
 
@@ -13,24 +13,27 @@
     <ContentPage.Content>
     <StackLayout Padding="40" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
 
-            <Image Source="noson.png" WidthRequest="180" HeightRequest="180"></Image>
+            <Image Source="buho.png"  WidthRequest="180" HeightRequest="180"></Image>
             
         
-        <Label Text="Inicio de Sesión" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        <Label Text="Inicio de Sesión" HorizontalTextAlignment="Center" TextColor="Black" FontSize="36"/>
 
-            <Label Text="Correo" TextColor="White"></Label>
-            <Entry Placeholder="ejemplo@unitec.edu" TextColor="White" PlaceholderColor="Gray" Keyboard="Email" Text="{Binding Correo_cliente}"></Entry>
-            <Label Text="Contraseña" TextColor="White"></Label>
-            <Entry Placeholder="Contraseña" TextColor="White" PlaceholderColor="Gray" Text="{Binding Pass}" IsPassword="True" Keyboard="Text"></Entry>
+            <Label Text="Correo" TextColor="Black"></Label>
+            <Entry Placeholder="ejemplo@unitec.edu" TextColor="Black" PlaceholderColor="Black" Keyboard="Email" Text="{Binding Correo_cliente}"></Entry>
+            <Label Text="Contraseña" TextColor="Black"></Label>
+            <Entry Placeholder="Contraseña" TextColor="Black" PlaceholderColor="Black" Text="{Binding Pass}" IsPassword="True" Keyboard="Text"></Entry>
         <Button
             VerticalOptions="Center"
             Text="Ingresar"
             TextColor="White"
-            BackgroundColor="Transparent"
+            BackgroundColor="Green"
             BorderWidth="1.5"
             CornerRadius="50"
+           
             Command="{Binding inicioSesion}"
             ></Button>
-    </StackLayout>
+
+            <Label Text="{Binding Resultado}" TextColor="Red" FontSize="25" ></Label>
+        </StackLayout>
    </ContentPage.Content>
 </ContentPage>
