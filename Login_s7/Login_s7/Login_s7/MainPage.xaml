@@ -16,7 +16,7 @@
             <Image Source="buho.png"  WidthRequest="180" HeightRequest="180"></Image>
             
         
-        <Label Text="Inicio de Sesión" HorizontalTextAlignment="Center" TextColor="Black" FontSize="36"/>
+        <Label Text="Tickets Charles" HorizontalTextAlignment="Center" TextColor="Black" FontSize="36"/>
 
             <Label Text="Correo" TextColor="Black"></Label>
             <Entry Placeholder="ejemplo@unitec.edu" TextColor="Black" PlaceholderColor="Black" Keyboard="Email" Text="{Binding Correo_cliente}"></Entry>
