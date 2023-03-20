@@ -20,30 +20,47 @@ namespace Login_s7.ViewModel
                 HttpClient cliente = new HttpClient();
                 var respuesta = await cliente.GetAsync(url + this.correo_cliente + "/"+this.pass);
 
-                if (respuesta.IsSuccessStatusCode)
+            if (respuesta.IsSuccessStatusCode)
+            {
+
+                var contenido = await respuesta.Content.ReadAsStringAsync();
+
+
+
+                var inicioSesion = System.Text.Json.JsonSerializer.Deserialize<List<login>>(contenido);
+
+
+                if (inicioSesion[0].is_valid == 1 && inicioSesion[0].id_rol == 1)
                 {
 
-                    var contenido = await respuesta.Content.ReadAsStringAsync();
-
-
-
-                    var inicioSesion = System.Text.Json.JsonSerializer.Deserialize<List<login>>(contenido);
-
-
-                    if (inicioSesion[0].is_valid == 1)
-                    {
-
-                        await Application.Current.MainPage.Navigation.PushAsync(new ViewInicio());
+                    await Application.Current.MainPage.Navigation.PushAsync(new ViewInicio());
 
                     }
-                    else
+                   
+                 else if (inicioSesion[0].is_valid == 1 && inicioSesion[0].id_rol == 2)
                     {
+                        await Application.Current.MainPage.Navigation.PushAsync(new ViewTecnico());
+                        
+                    }
+                   
+                else if (inicioSesion[0].is_valid == 1 && inicioSesion[0].id_rol == 3)
+                    {
+                    await Application.Current.MainPage.Navigation.PushAsync(new ViewAdministrador());
 
+                }
+                else
+                    {
+                       
                         Resultado = "Usuario o contraseña invalidos";
                     }
 
                 }
 
+            });
+
+            registro = new Command(async () =>
+            {
+                await Application.Current.MainPage.Navigation.PushAsync(new ViewRegistro());
             });
         }
 
@@ -92,6 +109,7 @@ namespace Login_s7.ViewModel
 
 
         public Command inicioSesion { get; }
+        public Command registro { get;} 
 
         public event PropertyChangedEventHandler PropertyChanged;
     }

@@ -10,10 +10,10 @@ using Xamarin.Forms.Xaml;
 namespace Login_s7.View
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ViewInicio : ContentPage { 
-		public ViewInicio ()
+	public partial class ViewRegistro : ContentPage
+	{
+		public ViewRegistro ()
 		{
-
 			InitializeComponent ();
 		}
 	}

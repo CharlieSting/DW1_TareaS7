@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Login_s7.View;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,6 +12,7 @@ namespace Login_s7
             InitializeComponent();
 
             MainPage = new NavigationPage(new MainPage());
+            
         }
 
         protected override void OnStart()

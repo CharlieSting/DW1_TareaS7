@@ -4,52 +4,55 @@
              x:Class="Login_s7.View.ViewInicio"
              xmlns:local="clr-namespace:Login_s7.ViewModel">
 
-
     <ContentPage.BindingContext>
         <local:ViewModelInicio></local:ViewModelInicio>
     </ContentPage.BindingContext>
 
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Reporte de clientes"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+    <StackLayout>
+        <Frame BackgroundColor="#2B3467" Padding="24" CornerRadius="0"   >
+            <Label Text="Crear nuevo ticket" HorizontalTextAlignment="Center" TextColor="#BAD7E9" FontSize="36"/>
+        </Frame>
 
-            <CollectionView Grid.Row="5" Grid.ColumnSpan="2" Grid.Column="0" 
-                        SelectedItem="{Binding PersonaSeleccionada}" 
-                        SelectionMode="Single"  
-                        ItemsSource="{Binding ListPersonas}"
-                        SelectionChangedCommand="{Binding actualizarFormulario}"
-                        >
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
+        <Label Text="Fecha"></Label>
+        <Entry Keyboard="Text" Placeholder="DIA/MES/AÑO" Text="{Binding Fecha}"></Entry>
 
-                        <Grid Padding="10">
+        <Label Text="Su id cliente"></Label>
+        <Entry Keyboard="Numeric" Placeholder="Su id de cliente" Text="{Binding Cliente}"></Entry>
 
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"></RowDefinition>
-                            </Grid.RowDefinitions>
+        <Label Text="Su prioridad"></Label>
+        <Entry Keyboard="Numeric" Placeholder="1 alta" Text="{Binding Prioridad}"></Entry>
 
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" ></ColumnDefinition>
-                                <ColumnDefinition Width="*" ></ColumnDefinition>
-                                <ColumnDefinition Width="*" ></ColumnDefinition>
-                                <ColumnDefinition Width="*" ></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
+        <Label Text="Asunto"></Label>
+        <Entry Keyboard="Text" Placeholder="Asunto" Text="{Binding Asunto}"></Entry>
 
-                            <Label Text="{Binding id_cliente}"  Grid.Row="0" Grid.Column="0" />
-                            <Label Text="{Binding num_identidad}" Grid.Row="0" Grid.Column="1"/>
-                            <Label Text="{Binding nombre_cliente}"  Grid.Row="0" Grid.Column="2"/>
-                            <Label Text="{Binding correo_cliente}"  Grid.Row="0" Grid.Column="3"/>
+        <Label Text="Descripcion"></Label>
+        <Entry Keyboard="Text" Placeholder="Describa" Text="{Binding Descripcion}"></Entry>
 
-                        </Grid>
+        <Button
+            VerticalOptions="Center"
+            Text="Enviar"
+            TextColor="White"
+            BackgroundColor="Green"
+            BorderWidth="1.5"
+            CornerRadius="50"
+           
+            Command="{Binding EnviarTicket}"
+            ></Button>
 
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+        <Label Text="{Binding Mensaje}"></Label>
 
+        <Button
+            VerticalOptions="Center"
+            Text="Mis tickets"
+            TextColor="White"
+            BackgroundColor="Green"
+            BorderWidth="1.5"
+            CornerRadius="50"
+           
+            Command="{Binding VerTicket}"
+            ></Button>
 
-        </StackLayout>
-    </ContentPage.Content>
-    
+    </StackLayout>
+
 </ContentPage>
+

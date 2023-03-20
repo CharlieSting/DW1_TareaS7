@@ -32,6 +32,15 @@
            
             Command="{Binding inicioSesion}"
             ></Button>
+            <Button
+            VerticalOptions="Center"
+            Text="Registrate"
+            TextColor="White"
+            BackgroundColor="Green"
+            BorderWidth="1.5"
+            CornerRadius="50"
+            Command="{Binding registro}"
+            ></Button>
 
             <Label Text="{Binding Resultado}" TextColor="Red" FontSize="25" ></Label>
         </StackLayout>
